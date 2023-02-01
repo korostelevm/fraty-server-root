@@ -417,7 +417,7 @@ const EventData = async (event: string, wallet: string) => {
   const findMembers = await UserInfo.find({
     wallet: { $in: findAllUsers.map((user) => user.wallet) },
   })?.lean();
-  const membersWithStatus = findMembers.map((member) => {
+  const membersWithStatus = findMembers.map((member: any) => {
     const findUser = findAllUsers.find((user) => user.wallet === member.wallet);
     member.status = findUser?.Status;
     return member;
