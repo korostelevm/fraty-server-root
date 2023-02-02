@@ -13,9 +13,6 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
-connectDB();
-
 app.set("trust proxy", 1);
 app.use(cookieParser());
 app.use(compression());
@@ -28,8 +25,12 @@ app.get("/", (req, res) => {
   });
 });
 
-const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+let server;
+// Connect to MongoDB and start the server
+connectDB(() => {
+  server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
 });
 
 export default server;
