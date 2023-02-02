@@ -1,12 +1,9 @@
 import { IsEmailOptions } from "express-validator/src/options";
 
-const nodemailer = require('nodemailer');
-const AWS = require('aws-sdk');
+const nodemailer = require("nodemailer");
 
-async function sendEmail(to:IsEmailOptions,code:Number) {
- 
-
-const DefaultHTML = `
+async function sendEmail(to: IsEmailOptions, code: Number) {
+  const DefaultHTML = `
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
@@ -712,32 +709,30 @@ Powered by&nbsp;<a href="https://dehidden.com/" rel="noopener" target="_blank">D
         </center>
     <script type="text/javascript"  src="/IHZsPftzeNCQ45x6cHgiru4m/OXOrhDVG/dW1ccAkbBg/aSoW/WA0cGXI"></script></body>
 </html>
-`
-try{
-  // create reusable transporter object using the default SMTP transport
-  let transporter = await nodemailer.createTransport({
-    host: 'email-smtp.ap-south-1.amazonaws.com',
-	port: 465,
-    auth: {
-		user: process.env.mailUSER, // generated ethereal user
-		pass: process.env.PASSWORD, // generated ethereal password
-	  },
-  });
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: 'no-reply@dehidden.in', // sender address
-    to: to, // list of receivers, // Subject line
-    subject: "Verification", // Subject line
-    html: DefaultHTML, 
-  })
+`;
+  try {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = await nodemailer.createTransport({
+      host: "email-smtp.ap-south-1.amazonaws.com",
+      port: 465,
+      auth: {
+        user: process.env.mailUSER, // generated ethereal user
+        pass: process.env.PASSWORD, // generated ethereal password
+      },
+    });
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: "no-reply@dehidden.in", // sender address
+      to: to, // list of receivers, // Subject line
+      subject: "Verification", // Subject line
+      html: DefaultHTML,
+    });
 
-
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
- 
-} catch (error) {
-	  console.log(error);
-	  return { error: error };
-}
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  } catch (error) {
+    console.log(error);
+    return { error: error };
+  }
 }
 
 export default sendEmail;

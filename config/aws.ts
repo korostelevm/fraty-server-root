@@ -1,16 +1,14 @@
-import AWS from "aws-sdk";
 import https from "https";
+import { SQSClient, AddPermissionCommand } from "@aws-sdk/client-sqs";
 
-AWS.config.update({
-	region: process.env.SQS_REGION,
-	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
-export const sqs = new AWS.SQS({
-	apiVersion: "2012-11-05",
-	httpOptions: {
-		agent: new https.Agent({
-			keepAlive: true,
-		}),
-	},
+const region = process.env.SQS_REGION;
+const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+
+export const sqs = new SQSClient({
+  region,
+  credentials: {
+    accessKeyId,
+    secretAccessKey,
+  },
 });
