@@ -1,7 +1,8 @@
 {
   "name": "tph-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "TPH Backend",
+  "main": "dist/src/server.js",
   "scripts": {
     "start": "node dist/src/server.js",
     "tsc": "tsc",
