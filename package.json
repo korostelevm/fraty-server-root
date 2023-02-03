@@ -9,7 +9,7 @@
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
     "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\"",
-    "postinstall": "npm run tsc"
+    "postinstall": "npm run tsc && cp package.json dist/"
   },
   "keywords": [],
   "author": "",
