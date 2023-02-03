@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "sh -c 'while true; do node dist/src/server.js; done'",
+    "start": "node dist/src/server.js",
     "tsc": "tsc",
     "watch-tsc": "tsc -w",
     "deploy": "node dist/src/server.js",
