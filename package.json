@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "TPH Backend",
   "scripts": {
-    "start": "node ./src/server.js",
+    "start": "node src/server.js",
     "tsc": "tsc",
     "watch-tsc": "tsc -w",
     "deploy": "node dist/src/server.js",
