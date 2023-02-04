@@ -8,6 +8,7 @@
     "watch-tsc": "tsc -w",
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
+    "build": "tsc",
     "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\""  },
   "keywords": [],
   "author": "",
