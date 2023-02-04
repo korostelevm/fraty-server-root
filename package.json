@@ -8,7 +8,8 @@
     "watch-tsc": "tsc -w",
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
-    "build": "tsc && cp package.json dist/",
+    "build": "tsc",
+    "postbuild": "cp package.json dist/package.json && cd dist && npm install --only=production",
     "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\""
   },
   "keywords": [],
