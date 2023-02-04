@@ -1,4 +1,4 @@
-require("dotenv").config();
+import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import connectDB from "../config/database";
@@ -8,6 +8,8 @@ import cookieParser from "cookie-parser";
 import Routes from "./routes/v1/index";
 const app = express();
 const port = process.env.PORT || 5000;
+
+dotenv.config();
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
