@@ -9,8 +9,7 @@
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
     "build": "tsc",
-    "postbuild": "cp package.json dist/ && out='dist/node_modules' && root=$(npm root) && mkdir -p $out && npm ls --production --parseable | tail --lines=+2 | sed \"s%$root%%\" | cut --delimiter='/' --fields=2 | sort | uniq | xargs -I % cp -r \"$root/%\" $out",
-    "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\""
+    "postbuild": "cp package.json dist/ && npm --prefix dist/ install --production"
   },
   "keywords": [],
   "author": "",
