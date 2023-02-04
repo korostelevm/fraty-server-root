@@ -9,7 +9,7 @@
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
     "build": "tsc",
-    "postbuild": "cp package.json dist/package.json && npm i --prefix dist --production",
+    "postbuild": "cp package.json dist/package.json",
     "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\""
   },
   "keywords": [],
