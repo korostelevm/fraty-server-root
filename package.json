@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "TPH Backend",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node dist/src/server.js",
     "tsc": "tsc",
     "watch-tsc": "tsc -w",
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
     "build": "tsc && cp package.json dist/",
-    "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\""  },
+    "dev": "concurrently \"npm run watch-tsc\" \"npm run watch-deploy\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
