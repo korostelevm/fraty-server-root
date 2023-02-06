@@ -9,7 +9,7 @@
     "deploy": "node dist/src/server.js",
     "watch-deploy": "nodemon dist/src/server.js",
     "build": "tsc",
-     "postbuild": "cp package.json dist/ && npm install --production"
+     "postbuild": "cp package.json dist/ && cd dist/ && npm install --production"
   },
   "keywords": [],
   "author": "",
